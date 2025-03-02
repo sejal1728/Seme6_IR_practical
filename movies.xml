@@ -1,0 +1,46 @@
+<collection shelf="New Arrivals">
+    <movie title="One Piece: Stampede">
+        <type>Anime, Action</type>
+        <format>Blu-ray</format>
+        <year>2019</year>
+        <rating>PG-13</rating>
+        <stars>9</stars>
+        <description>The Pirates Festival</description>
+    </movie>
+
+    <movie title="Your Name">
+        <type>Anime, Romance, Fantasy</type>
+        <format>Blu-ray</format>
+        <year>2016</year>
+        <rating>PG</rating>
+        <stars>9</stars>
+        <description>A beautiful story of two strangers</description>
+    </movie>
+
+    <movie title="3 Idiots">
+        <type>Comedy, Drama</type>
+        <format>DVD</format>
+        <year>2009</year>
+        <rating>PG-13</rating>
+        <stars>10</stars>
+        <description>A story of three friends in an engineering college</description>
+    </movie>
+
+    <movie title="Dangal">
+        <type>Action, Biography, Drama</type>
+        <format>DVD</format>
+        <year>2016</year>
+        <rating>PG</rating>
+        <stars>9</stars>
+        <description>Based on the true story of wrestler Mahavir Singh Phogat</description>
+    </movie>
+
+    <movie title="Andhadhun">
+        <type>Suspense, Thriller</type>
+        <format>Blu-ray</format>
+        <year>2018</year>
+        <rating>R</rating>
+        <stars>8</stars>
+        <description>A blind pianist who witnesses a murder</description>
+    </movie>
+</collection>
