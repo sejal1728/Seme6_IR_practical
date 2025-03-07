@@ -1,0 +1,50 @@
+#pip install transformers
+#pip install torch
+#pip install transformers torch
+from transformers import pipeline
+import torch
+import concurrent.futures
+
+device = 0 if torch.cuda.is_available() else -1
+qa_pipeline = pipeline('question-answering', device=device)
+
+context = """
+The Advanced Face Recognition Attendance Management System is designed to automate
+the process of taking attendance in educational institutions.
+It uses face recognition technology to identify students as they enter the classroom. The
+system stores facial data of students and links them with their personal details.
+When a student enters the class, the system compares the captured image to the stored data
+and marks the student as present. The system also generates reports on attendance records,
+ensuring accuracy and eliminating the need for manual attendance taking. The system is
+highly efficient and reduces human errors in attendance management.
+It can also integrate with other school management systems for seamless operation and data
+management.
+"""
+
+print("Context:\n", context, "\n")
+
+questions = [
+    "What technology is used for attendance management?",
+    "How does the system mark a student as present?",
+    "What is the benefit of using this system?",
+    "Can the system integrate with other systems?",
+    "What is the capital of India?"
+]
+
+def get_answer(question):
+    try:
+        result = qa_pipeline({'context': context, 'question': question})
+        answer = result['answer']
+        confidence = result.get('score', 0)
+        if confidence < 0.1 or len(answer.strip()) == 0:
+            return "This question is not related to the given context."
+        return answer
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
+
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    results = list(executor.map(get_answer, questions))
+
+for idx, result in enumerate(results):
+    print(f"Question {idx + 1}: {questions[idx]}")
+    print(f"Answer {idx + 1}: {result}\n")
